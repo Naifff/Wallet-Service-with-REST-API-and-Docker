@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-indexes
+      author: wallet-service
+      comments: Добавление индексов для оптимизации запросов
+      changes:
+        # Индекс для поиска по статусу
+        - createIndex:
+            indexName: idx_wallets_status
+            tableName: wallets
+            columns:
+              - column:
+                  name: status
+        # Составной индекс для часто используемых полей
+        - createIndex:
+            indexName: idx_wallets_status_balance
+            tableName: wallets
+            columns:
+              - column:
+                  name: status
+              - column:
+                  name: balance

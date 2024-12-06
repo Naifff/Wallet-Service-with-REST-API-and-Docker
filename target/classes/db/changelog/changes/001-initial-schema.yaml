@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001-initial-schema
+      author: wallet-service
+      comments: Создание основной таблицы кошельков
+      changes:
+        - createTable:
+            tableName: wallets
+            columns:
+              # Идентификатор кошелька
+              - column:
+                  name: wallet_id
+                  type: uuid
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              # Поле версии для оптимистичной блокировки
+              - column:
+                  name: version
+                  type: bigint
+                  constraints:
+                    nullable: false
+              # Баланс кошелька с высокой точностью
+              - column:
+                  name: balance
+                  type: decimal(19,2)
+                  constraints:
+                    nullable: false
+              # Статус кошелька
+              - column:
+                  name: status
+                  type: varchar(20)
+                  defaultValue: "ACTIVE"
+                  constraints:
+                    nullable: false
+        # Добавляем ограничение на неотрицательный баланс
+        - sql:
+            sql: ALTER TABLE wallets ADD CONSTRAINT check_positive_balance CHECK (balance >= 0)

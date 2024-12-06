@@ -1,0 +1,17 @@
+com/wallet/exception/ErrorResponse.class
+com/wallet/service/TransactionQueueService$1.class
+com/wallet/service/TransactionQueueService.class
+com/wallet/exception/InsufficientFundsException.class
+com/wallet/service/WalletService.class
+com/wallet/controller/WalletController.class
+com/wallet/exception/InvalidOperationException.class
+com/wallet/controller/HealthCheckController.class
+com/wallet/repository/WalletRepository.class
+com/wallet/exception/WalletNotFoundException.class
+com/wallet/model/Wallet.class
+com/wallet/WalletApplication.class
+com/wallet/exception/WalletException.class
+com/wallet/dto/OperationRequest.class
+com/wallet/controller/DatabaseHealthIndicator.class
+com/wallet/exception/GlobalExceptionHandler.class
+com/wallet/dto/OperationType.class
